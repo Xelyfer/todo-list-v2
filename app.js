@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 mongoose.connect(
-  "mongodb+srv://admin-xelyfer:<password>@cluster0.ssxx1.mongodb.net/todolistDB",
+  "<URL>",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
