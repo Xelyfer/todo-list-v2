@@ -9,11 +9,14 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  "mongodb+srv://admin-xelyfer:abcd1234@cluster0.ssxx1.mongodb.net/todolistDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  }
+);
 
 const itemsSchema = {
   name: {
@@ -147,6 +150,11 @@ app.post("/delete", function (req, res) {
   }
 });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, function () {
+  console.log("Server started sucessfully");
 });
